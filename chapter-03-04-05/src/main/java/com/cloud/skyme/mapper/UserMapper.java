@@ -1,41 +1,19 @@
 package com.cloud.skyme.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-
-import com.cloud.skyme.entity.UserEntity;
-import com.cloud.skyme.enums.UserSexEnum;
-
+import com.cloud.skyme.entity.User;
 
 public interface UserMapper {
-	
-	@Select("SELECT * FROM users")
-	@Results({
-		@Result(property = "userSex",  column = "user_sex", javaType = UserSexEnum.class),
-		@Result(property = "nickName", column = "nick_name")
-	})
-	List<UserEntity> getAll();
-	
-	@Select("SELECT * FROM users WHERE id = #{id}")
-	@Results({
-		@Result(property = "userSex",  column = "user_sex", javaType = UserSexEnum.class),
-		@Result(property = "nickName", column = "nick_name")
-	})
-	UserEntity getOne(Long id);
+	int deleteByPrimaryKey(Integer userId);
 
-	@Insert("INSERT INTO users(userName,passWord,user_sex) VALUES(#{userName}, #{passWord}, #{userSex})")
-	void insert(UserEntity user);
+	int insert(User record);
 
-	@Update("UPDATE users SET userName=#{userName},nick_name=#{nickName} WHERE id =#{id}")
-	void update(UserEntity user);
+	int insertSelective(User record);
 
-	@Delete("DELETE FROM users WHERE id =#{id}")
-	void delete(Long id);
+	User selectByPrimaryKey(Integer userId);
 
+	int updateByPrimaryKeySelective(User record);
+
+	int updateByPrimaryKey(User record);
+
+	User getUserByUsername(String username);
 }
