@@ -20,5 +20,6 @@ chapter-04-07对应章节4.7Spring boot与docker<br/>
 chapter-05-01-eurekaserver和chapter-05-01-eurekaregistry和chapter-05-01-eurekaregistry2对应章节5.1注册中心<br/>
 chapter-05-02-core和chapter-05-02-feign和chapter-05-02-ribbon对应章节5.2负载均衡<br/>
 chapter-05-03-03对应章节5.3.3降级和熔断<br/>
+chapter-05-03-04对应章节5.3.3集中监控<br/>
 
 
