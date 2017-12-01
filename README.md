@@ -21,5 +21,6 @@ chapter-05-01-eurekaserver和chapter-05-01-eurekaregistry和chapter-05-01-eureka
 chapter-05-02-core和chapter-05-02-feign和chapter-05-02-ribbon对应章节5.2负载均衡<br/>
 chapter-05-03-03对应章节5.3.3降级和熔断<br/>
 chapter-05-03-04对应章节5.3.4集中监控<br/>
+chapter-05-04-configclient和chapter-05-04-configserver对应章节5.4分布式配置中心<br/>
 
 
