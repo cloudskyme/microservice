@@ -11,6 +11,13 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * @ClassName StatisticsController
+ * @Description 统计微服务
+ * @author zhangfeng
+ * @Date 2018年2月22日 上午11:36:12
+ * @version 1.0.0
+ */
 @RestController
 public class StatisticsController {
 

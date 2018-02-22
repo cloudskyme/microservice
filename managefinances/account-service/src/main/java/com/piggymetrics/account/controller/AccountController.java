@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.security.Principal;
 
+/**
+ * @ClassName AccountController
+ * @Description 账号管理控制
+ * @author zhangfeng
+ * @Date 2018年2月22日 上午11:29:37
+ * @version 1.0.0
+ */
 @RestController
 public class AccountController {
 
