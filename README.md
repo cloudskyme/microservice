@@ -24,4 +24,6 @@ chapter-05-03-04对应章节5.3.4集中监控<br/>
 chapter-05-04-configclient和chapter-05-04-configserver对应章节5.4分布式配置中心<br/>
 chapter-05-05对应章节5.5.	API网关<br/>
 
+managefinances对应第11章，理财微服务，修改自PiggyMetrics<br/>
+
 
