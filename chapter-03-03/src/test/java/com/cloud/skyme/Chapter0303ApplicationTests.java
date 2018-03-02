@@ -41,7 +41,7 @@ public class Chapter0303ApplicationTests {
 				.get("/aop/testBeforeService.do")
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo("前四通知测试")));
+				.andExpect(content().string(equalTo("前置通知测试")));
 	}
 
 	/**
