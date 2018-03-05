@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
 /**
  * @ClassName Chapter0303ApplicationTests
  * @Description 测试AOP
@@ -41,7 +40,7 @@ public class Chapter0303ApplicationTests {
 				.get("/aop/testBeforeService.do")
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo("前四通知测试")));
+				.andExpect(content().string(equalTo("前置通知测试")));
 	}
 
 	/**
