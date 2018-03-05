@@ -1,9 +1,5 @@
 package com.cloud.skyme.web;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +30,10 @@ public class UserController {
 	private TUserMapper1 tUserMapper2;//第二个数据源
 	
 	
+	/**
+	 * @Description 多数据源读取数据测试
+	 * @return
+	 */
 	@RequestMapping("/getAll")
 	public String getUsers() {
 		TUser tUser = tUserMapper.selectByPrimaryKey(1);
