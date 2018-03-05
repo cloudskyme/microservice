@@ -24,6 +24,10 @@ public class UserController {
 	private TUserService tUserService;
 	
 	
+	/**
+	 * @Description 动态数据源测试
+	 * @return
+	 */
 	@RequestMapping("/getAll")
 	public String getUsers() {
 		tUserService.getDataSource1();
