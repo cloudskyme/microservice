@@ -1,18 +1,16 @@
 package com.cloud.skyme;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @ClassName Chapter0301ApplicationTests
@@ -22,18 +20,17 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
  * @version 1.0.0
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureMockMvc
+@SpringBootTest(classes=Chapter0301Application.class,webEnvironment = WebEnvironment.RANDOM_PORT)
 public class Chapter0301ApplicationTests {
 	
 	@Autowired
-    private MockMvc mvc;
+	private TestRestTemplate restTemplate;
 
-    @Test
-    public void getHello() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("欢迎使用Spring Boot!")));
-    }
+	@Test
+	public void testHome() {
+		ResponseEntity<String> entity = this.restTemplate.getForEntity("/", String.class);
+		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(entity.getBody()).isEqualTo("欢迎使用Spring Boot!");
+	}
 
 }
