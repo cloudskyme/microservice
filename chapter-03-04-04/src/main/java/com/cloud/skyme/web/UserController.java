@@ -29,6 +29,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
     
+    /**
+     * @Description spring boot事务处理
+     * @param user
+     * @return
+     */
     @RequestMapping("/add")
     public String save(UserEntity user) {
     	userService.testInsert();

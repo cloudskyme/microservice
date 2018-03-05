@@ -1,0 +1,5 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: cloud-client    #为你的应用起个名字，该名字将注册到eureka注册中心
