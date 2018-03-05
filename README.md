@@ -15,7 +15,8 @@ chapter-03-05对应章节3.5.	Web开发<br/>
 chapter-03-06对应章节3.6.	懒人的接口文档管理<br/>
 chapter-03-07对应章节3.7.	优化的调度<br/>
 chapter-03-08对应章节3.8.	健康是永恒的主题<br/>
-chapter-03-09-customer和chapter-03-09-provider对应章节3.9.	强强联合之整合dubbox<br/>
+chapter-03-09-customer对应spring boot dubbo消费者<br/>
+和chapter-03-09-provider对应spring boot dubbo提供者<br/>
 chapter-04-07对应章节4.7Spring boot与docker<br/>
 chapter-05-01-eurekaserver和chapter-05-01-eurekaregistry和chapter-05-01-eurekaregistry2对应章节5.1注册中心<br/>
 chapter-05-02-core和chapter-05-02-feign和chapter-05-02-ribbon对应章节5.2负载均衡<br/>
