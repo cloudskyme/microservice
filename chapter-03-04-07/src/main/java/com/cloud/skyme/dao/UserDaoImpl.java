@@ -2,6 +2,8 @@ package com.cloud.skyme.dao;
 
 import com.cloud.skyme.entity.UserEntity;
 import com.mongodb.WriteResult;
+import com.mongodb.client.result.UpdateResult;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -52,11 +54,11 @@ public class UserDaoImpl implements UserDao {
         Query query=new Query(Criteria.where("id").is(user.getId()));
         Update update= new Update().set("userName", user.getUserName()).set("passWord", user.getPassWord());
         //更新查询返回结果集的第一条
-        WriteResult result =mongoTemplate.updateFirst(query,update,UserEntity.class);
+        UpdateResult result = mongoTemplate.updateFirst(query, update, UserEntity.class);
         //更新查询返回结果集的所有
         // mongoTemplate.updateMulti(query,update,UserEntity.class);
         if(result!=null)
-            return result.getN();
+            return (int) result.getModifiedCount();
         else
             return 0;
     }
