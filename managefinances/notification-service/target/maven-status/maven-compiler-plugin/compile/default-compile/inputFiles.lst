@@ -1,0 +1,16 @@
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\repository\RecipientRepository.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\service\RecipientService.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\controller\RecipientController.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\NotificationServiceApplication.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\domain\NotificationSettings.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\domain\Recipient.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\service\NotificationServiceImpl.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\service\NotificationService.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\repository\converter\FrequencyWriterConverter.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\client\AccountServiceClient.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\service\EmailServiceImpl.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\service\RecipientServiceImpl.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\repository\converter\FrequencyReaderConverter.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\domain\Frequency.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\service\EmailService.java
+C:\Users\zhangfeng\git\managerfinances\managefinances\notification-service\src\main\java\com\piggymetrics\notification\domain\NotificationType.java
