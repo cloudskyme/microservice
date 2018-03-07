@@ -46,7 +46,7 @@ import com.cloud.skyme.mapper.UserMapper;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
+//	@Autowired
 	UserMapper userMapper;
 
 	@Override
