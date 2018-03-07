@@ -10,6 +10,7 @@ import com.cloud.skyme.entity.User;
 import com.cloud.skyme.service.RedisService;
 import com.cloud.skyme.service.UserService;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
@@ -20,6 +21,7 @@ import io.swagger.annotations.ApiOperation;
  * @Date 2017年10月25日 下午5:04:54
  * @version 1.0.0
  */
+@Api("消息队列相关api")
 @RestController
 @RequestMapping("/redis")
 public class RedisController {
