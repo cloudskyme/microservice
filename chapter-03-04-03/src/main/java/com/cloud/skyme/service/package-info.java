@@ -7,7 +7,7 @@
  *
  *    Filename:    package-info.java
  *
- *    Description: 测试多数据源服务
+ *    Description: 服务层，用于查询jooq
  *
  *    Copyright:   Copyright (c) 2010-2017
  *
@@ -17,19 +17,19 @@
  *
  *    @version:    1.0.0
  *
- *    Create at:   2017年10月31日 下午4:09:15
+ *    Create at:   2018年3月6日 下午6:02:28
  *
  *    Revision:
  *
- *    2017年10月31日 下午4:09:15
+ *    2018年3月6日 下午6:02:28
  *        - first revision
  *
  *****************************************************************/
 /**
  * @ClassName package-info
- * @Description 测试多数据源服务
+ * @Description 服务层，用于查询jooq
  * @author zhangfeng
- * @Date 2017年10月31日 下午4:09:15
+ * @Date 2018年3月6日 下午6:02:28
  * @version 1.0.0
  */
 package com.cloud.skyme.service;

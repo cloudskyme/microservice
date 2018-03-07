@@ -3,20 +3,14 @@ package com.cloud.skyme.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 
 import com.cloud.skyme.entity.User;
+import com.cloud.skyme.service.RedisService;
 import com.cloud.skyme.service.UserService;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
@@ -27,6 +21,7 @@ import io.swagger.annotations.ApiOperation;
  * @Date 2017年10月25日 下午5:04:54
  * @version 1.0.0
  */
+@Api("消息队列相关api")
 @RestController
 @RequestMapping("/redis")
 public class RedisController {
@@ -34,69 +29,99 @@ public class RedisController {
 	private final static Logger logger = LoggerFactory.getLogger(RedisController.class);
 
 	@Autowired
-	UserService userService;
+    RedisService redisService;
 
-	@Autowired
-	private StringRedisTemplate stringRedisTemplate;
+    /**
+     * 设置Str缓存
+     * @param key
+     * @param val
+     * @return
+     */
+	@ApiOperation(value = "设置缓存值", notes = "设置缓存值")
+    @RequestMapping(value = "setStr")
+    public String setStr(String key, String val){
+        try {
+            redisService.setStr(key, val);
+            return "success";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+    }
 
-	@Autowired
-	private RedisTemplate redisTemplate;
+    /**
+     * 根据key查询Str缓存
+     * @param key
+     * @return
+     */
+	@ApiOperation(value = "根据key取值", notes = "根据key取值")
+    @RequestMapping(value = "getStr")
+    public String getStr(String key){
+        return redisService.getStr(key);
+    }
 
-	@ApiOperation(value = "字符串缓存测试", notes = "字符串缓存测试")
-	@RequestMapping(value = "/string", method = RequestMethod.GET)
-	public void insertString() {
-		stringRedisTemplate.opsForValue().set("stringKey", "stringValue");
-	}
 
-	@ApiOperation(value = "对象缓存测试", notes = "对象缓存测试")
-	@RequestMapping(value = "/string/object", method = RequestMethod.GET)
-	public void insertStringObject() {
-		User user = new User();
-		user.setUserId(1);
-		user.setUsername("user1");
-		user.setPassword("password1");
-		redisTemplate.opsForValue().set("stringKeyObject", user);
-	}
+    /**
+     * 根据key产出Str缓存
+     * @param key
+     * @return
+     */
+	@ApiOperation(value = "删除key取值", notes = "删除key取值")
+    @RequestMapping(value = "delStr")
+    public String delStr(String key){
+        try {
+            redisService.del(key);
+            return "success";
+        } catch (Exception e){
+            return "error";
+        }
+    }
 
-	@ApiOperation(value = "获取缓存中的对象", notes = "获取缓存中的对象")
-	@RequestMapping(value = "/string/object/get", method = RequestMethod.GET)
-	public User getStringObject() {
-		User user = (User) redisTemplate.opsForValue().get("stringKeyObject");
-		return user;
-	}
-	
-	@ApiOperation(value = "用户插入缓存测试", notes = "用户插入缓存测试")
-	@CachePut(value = "user", key = "#root.caches[0].name + ':' + #user.userId")
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public User insertUser(@RequestBody User user) {
-		user.setPassword(user.getPassword());
-		userService.insertSelective(user);
-		return user;
-	}
-	
-	@ApiOperation(value = "获取用户信息测试", notes = "获取用户信息测试")
-	@Cacheable(value = "user")
-	@RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
-	public User getUser(@PathVariable Integer userId) {
-		logger.info("从DB中获取数据");
-		User user = userService.getUserById(userId);
-		return user;
-	}
-	
-	@ApiOperation(value = "更新用户缓存测试", notes = "更新用户缓存测试")
-	//#root.caches[0].name:当前被调用方法所使用的Cache, 即"user"
-	@CachePut(value = "user", key = "#root.caches[0].name + ':' + #user.userId")
-	@RequestMapping(value = "/user", method = RequestMethod.PUT)
-	public User updateUser(@RequestBody User user) {
-		user.setPassword(user.getPassword());
-		userService.updateByPrimaryKeySelective(user);
-		return user;
-	}
-	
-	@ApiOperation(value = "删除用户缓存测试", notes = "删除用户缓存测试")
-	@CacheEvict(value = "user")
-	@RequestMapping(value = "/user/{userId}", method = RequestMethod.DELETE)
-	public void deleteUser(@PathVariable Integer userId) {
-		userService.deleteByPrimaryKey(userId);
-}
+
+    /**
+     * 设置obj缓存
+     * @param key
+     * @param user
+     * @return
+     */
+	@ApiOperation(value = "设置缓存对象", notes = "设置缓存对象")
+    @RequestMapping(value = "setObj")
+    public String setObj(String key, User user){
+        try {
+            redisService.setObj(key, user);
+            return "success";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    /**
+     * 获取obj缓存
+     * @param key
+     * @return
+     */
+	@ApiOperation(value = "根据key取得对象", notes = "根据key取得对象")
+    @RequestMapping(value = "getObj")
+    public Object getObj(String key){
+        return redisService.getObj(key);
+    }
+
+
+    /**
+     * 删除obj缓存
+     * @param key
+     * @return
+     */
+	@ApiOperation(value = "删除缓存对象", notes = "删除缓存对象")
+    @RequestMapping(value = "delObj")
+    public Object delObj(String key){
+        try {
+            redisService.delObj(key);
+            return "success";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+    }
 }

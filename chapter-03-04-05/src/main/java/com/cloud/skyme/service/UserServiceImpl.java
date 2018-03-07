@@ -27,7 +27,6 @@
  *****************************************************************/
 package com.cloud.skyme.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,7 +45,7 @@ import com.cloud.skyme.mapper.UserMapper;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
+//	@Autowired
 	UserMapper userMapper;
 
 	@Override
